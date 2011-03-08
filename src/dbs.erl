@@ -1,7 +1,7 @@
 %
 % OTP gen_server tutorial, make a gen_server around db.erl
 %
--module(g).
+-module(dbs).
 -behaviour(gen_server).
 -vsn('1.0').
 
