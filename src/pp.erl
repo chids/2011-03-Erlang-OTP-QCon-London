@@ -30,6 +30,6 @@ loop() ->
 nameof(Pid) when is_atom(Pid) -> Pid;
 nameof(Pid) ->
     case process_info(Pid, registered_name) of
-        {_, Name} -> Name;
+        {registered_name, Name} -> Name;
         _ -> unknown
     end.
