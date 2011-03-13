@@ -23,16 +23,15 @@ convert(Number) when Number > 0, Number =< 3000 ->
     BackwardsRoman = to_roman(?VALUES, lists:reverse(Numbers)),
     lists:flatten(lists:reverse(BackwardsRoman)).
 
-to_int_list([Head|Rest])    -> [list_to_integer([Head]) | to_int_list(Rest)];
+to_int_list([Head|Rest])    -> [list_to_integer([Head])|to_int_list(Rest)];
 to_int_list([])             -> [].
     
-to_roman([Values|NextValues], [Number|NextNumbers]) ->
-    case Number of
-        0 -> to_roman(NextValues, NextNumbers);
-        _ -> [lists:nth(Number, Values) | to_roman(NextValues, NextNumbers)]
-    end;
-to_roman([], [Count|_Empty]) when Count > 0 -> ["M" | to_roman([], [Count - 1])];
-to_roman(_, _)   -> [].
+to_roman([Values|NextValues], [Number|NextNumbers]) -> [lookup(Number, Values)|to_roman(NextValues, NextNumbers)];
+to_roman([], [Count|_Empty]) when Count > 0 -> ["M"|to_roman([], [Count - 1])];
+to_roman(_, _) -> [].
+
+lookup(0, _Values) -> [];
+lookup(Number, Values) -> lists:nth(Number, Values).
 
 % Demo
 examples() ->
