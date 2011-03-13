@@ -13,9 +13,9 @@
 -module(roman_numerals).
 -export([convert/1, examples/0]).
 
--define(ONES, ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]).
--define(TENS, ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]).
--define(HUNDREDS, ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]).
+-define(ONES,       ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"]).
+-define(TENS,       ["X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"]).
+-define(HUNDREDS,   ["C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"]).
 -define(VALUES, [?ONES, ?TENS, ?HUNDREDS]).
 
 convert(Number) when Number > 0, Number =< 3000 ->
